@@ -1,4 +1,4 @@
-# SODINOPrep
+# SORDINOPrep
 
 This toolbox is designed specifically for SORDINO resting-state fMRI preprocessing.
 
