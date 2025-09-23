@@ -9,6 +9,8 @@ foreach ratNum ($NUMS)
 	if  ( -e "${FILE_PATH}${ratNum}_Anat.nii.gz" ) then
 		# Remove the previous file that has been resampled to 0.32 mm resolution if it exists
 		rm "${FILE_PATH}${ratNum}_Anat_032.nii.gz"
+		3drefit -orient RPS "${FILE_PATH}${ratNum}_Anat.nii.gz"
+		3drefit -orient RPS "${FILE_PATH}${ratNum}_Func.nii.gz"
 		3dresample -dxyz 0.32 0.32 0.32 -inset "${FILE_PATH}${ratNum}_Anat.nii.gz" -prefix "${FILE_PATH}${ratNum}_Anat_032.nii.gz"
 	else
 		echo "Warning! ${FILE_PATH}${ratNum}_Anat.nii.gz not found."
