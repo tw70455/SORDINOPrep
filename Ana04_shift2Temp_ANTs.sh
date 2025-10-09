@@ -14,6 +14,8 @@ set TEMPLATE_REF  = "${BASE_DIR}/Template/ZTE_Template_mean_Ants_resample_alline
 set TEMPLATE_MASK = "${BASE_DIR}/Template/ZTE_Template_mean_Ants_resample_allineate_resample_mask.nii.gz"                           # 
 
 
+set OMP_NUM_THREADS = 4
+
 foreach ratNum(${NUMS}) # 
 	if  ( -e "${FILE_PATH}${ratNum}_Func.nii.gz" ) then
 
