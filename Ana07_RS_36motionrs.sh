@@ -14,12 +14,12 @@ foreach ratNum($NUMS) #01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 
 		
 		
 		#####3ddeconvolve 'motion'
-		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36.nii.gz"
-		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_fitts_IM*"
+		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36.nii.gz"
+		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_fitts_IM*"
 		3dDeconvolve -input "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike.nii.gz" 	\
 		-local_times -polort 13 -jobs 11	-num_stimts 36										\
-		-fitts "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_fitts_IM"									\
-		-errts "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36.nii.gz"		\
+		-fitts "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_fitts_IM"									\
+		-errts "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36.nii.gz"		\
 		-stim_file 1 "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_parameters_n"'[0]' 								\
   		-stim_label 1 "roll" 													\
   		-stim_base 1														\
@@ -132,8 +132,8 @@ foreach ratNum($NUMS) #01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 
 		
 		
 		#### bandpass
-		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015.nii.gz"
-		3dBandpass -prefix "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015.nii.gz" -band 0.01 0.15 "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36.nii.gz"
+		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_bandpass015.nii.gz"
+		3dBandpass -prefix "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_bandpass015.nii.gz" -band 0.01 0.15 "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36.nii.gz"
 		
 		
 		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_mean.nii.gz"
@@ -142,13 +142,13 @@ foreach ratNum($NUMS) #01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 
 		
 		
 		#### admean
-		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015_admean.nii.gz"
-		3dcalc -a "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015.nii.gz" \
+		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_bandpass015_admean.nii.gz"
+		3dcalc -a "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_bandpass015.nii.gz" \
 			-b "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_mean.nii.gz" \
-			-expr 'a+b' -prefix "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015_admean.nii.gz"
+			-expr 'a+b' -prefix "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_bandpass015_admean.nii.gz"
 		
 		
-		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_fitts_IM+orig.BRIK"
-		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_fitts_IM+orig.HEAD"
+		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_fitts_IM+orig.BRIK"
+		rm "${FILE_PATH}${ratNum}_Func_ANTsWarped_masked_unify5_volreg_blur_rmmotion36_fitts_IM+orig.HEAD"
 		
 end
