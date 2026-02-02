@@ -83,7 +83,7 @@ for subject_count = 1 : length(Files)
 	rm_volume = unique(rm_volume);
 
 	keep_volume = setdiff([1:length(FD_Power)],rm_volume);
-	command_list1 = ['3dTcat -prefix ' Files(subject_count).name(1:end-11) '_blur_despike_detrend_blur_rmmotion36_bandpass015_admean_scrub.nii.gz ' Files(subject_count).name(1:end-11) '_blur_despike_detrend_blur_rmmotion36_bandpass015_admean.nii.gz"['];
+	command_list1 = ['3dTcat -prefix ' Files(subject_count).name(1:end-11) '_blur_rmmotion36_bandpass015_admean_scrub.nii.gz ' Files(subject_count).name(1:end-11) '_blur_rmmotion36_bandpass015_admean.nii.gz"['];
 	command_list = [];
 	for volume_count = 1 : length(keep_volume)
 	    command_list = [command_list num2str(keep_volume(volume_count)-1) ', '];
