@@ -6,7 +6,7 @@ set NUMS="Subj01 Subj02 Subj03"
 
 
 # Set base directory (where the script is located)
-set BASE_DIR = `dirname $0`
+set BASE_DIR = 'dirname $0'
 
 
 foreach ratNum($NUMS)
